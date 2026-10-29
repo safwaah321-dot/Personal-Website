@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="The personal portfolio of Safwa C.A, B.Tech Computer Science and Engineering student.">
+  <title>Safwa C.A — Student Portfolio</title>
+  <style>
+    :root {
+      --bg: #fff8fa;
+      --paper: #ffffff;
+      --pink: #d94f83;
+      --pink-dark: #a92f60;
+      --rose: #f6dce7;
+      --rose-light: #fff0f5;
+      --ink: #30232a;
+      --muted: #786a72;
+      --line: #f0dce4;
+      --shadow: 0 18px 50px rgba(132, 54, 87, .10);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 90% 5%, rgba(246, 220, 231, .65), transparent 27rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255, 248, 250, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(240, 220, 228, .8);
+    }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; font-weight: 800; letter-spacing: -.04em; font-size: 1.1rem; }
+    .brand span { color: var(--pink); }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { text-decoration: none; color: var(--muted); font-size: .92rem; font-weight: 600; transition: color .2s; }
+    nav a:hover { color: var(--pink-dark); }
+    .nav-cta { background: var(--pink); color: white !important; padding: 10px 17px; border-radius: 999px; }
+    .hero { padding: 86px 0 70px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 56px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--pink-dark); background: var(--rose-light); border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-size: .82rem; font-weight: 750; letter-spacing: .04em; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 0 4px rgba(217, 79, 131, .12); }
+    h1 { margin: 22px 0 12px; font-size: clamp(3rem, 7vw, 5.7rem); line-height: .98; letter-spacing: -.075em; }
+    h1 .accent { color: var(--pink); display: block; }
+    .hero p { color: var(--muted); font-size: 1.08rem; max-width: 550px; margin: 22px 0 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 12px 19px; font-weight: 750; text-decoration: none; border: 1px solid var(--pink); transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(217, 79, 131, .18); }
+    .btn.primary { background: var(--pink); color: white; }
+    .btn.secondary { background: white; color: var(--pink-dark); border-color: var(--line); }
+    .visual { position: relative; min-height: 370px; display: grid; place-items: center; }
+    .orbit { width: min(330px, 80vw); aspect-ratio: 1; border-radius: 50%; border: 1px solid #efc5d6; display: grid; place-items: center; position: relative; background: linear-gradient(145deg, #fff, #ffeaf2); box-shadow: var(--shadow); }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border: 1px solid rgba(217, 79, 131, .18); border-radius: 50%; }
+    .orbit::before { inset: 23px; }
+    .orbit::after { inset: 48px; }
+    .monogram { width: 170px; height: 170px; display: grid; place-items: center; border-radius: 50%; background: linear-gradient(145deg, #e96c9a, #bc376b); color: white; font-size: 4.6rem; font-family: Georgia, serif; font-style: italic; box-shadow: 0 18px 38px rgba(169, 47, 96, .24); z-index: 1; }
+    .float-card { position: absolute; z-index: 2; background: rgba(255,255,255,.94); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 16px; padding: 12px 15px; font-size: .85rem; font-weight: 750; }
+    .float-card small { display: block; color: var(--muted); font-weight: 500; font-size: .75rem; }
+    .card-one { top: 45px; right: 0; }
+    .card-two { bottom: 44px; left: 0; }
+    section { padding: 66px 0; }
+    .section-head { max-width: 650px; margin-bottom: 30px; }
+    .kicker { color: var(--pink); font-size: .78rem; text-transform: uppercase; letter-spacing: .18em; font-weight: 850; }
+    h2 { margin: 8px 0 10px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.055em; }
+    .section-head p, .about-copy { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 24px; }
+    .about-mark, .about-copy-card, .skill-card, .project-card, .education-card, .contact-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .about-mark { padding: 30px; background: linear-gradient(145deg, #f8dce7, #fff); display: flex; flex-direction: column; justify-content: space-between; min-height: 250px; }
+    .quote-mark { color: var(--pink); font-family: Georgia, serif; font-size: 4rem; line-height: 1; }
+    .about-mark strong { font-size: 1.45rem; line-height: 1.25; letter-spacing: -.03em; }
+    .about-copy-card { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+    .about-copy-card p { color: var(--muted); margin: 0 0 14px; }
+    .about-copy-card p:last-child { margin-bottom: 0; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .skill-card { padding: 25px; }
+    .icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; background: var(--rose-light); color: var(--pink-dark); font-size: 1.3rem; margin-bottom: 17px; }
+    .skill-card h3, .project-card h3, .education-card h3 { margin: 0 0 7px; font-size: 1.15rem; }
+    .skill-card p, .project-card p, .education-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .project-card { padding: 28px; position: relative; overflow: hidden; }
+    .project-card::after { content: "FPGA"; position: absolute; right: -5px; bottom: -30px; color: rgba(217,79,131,.07); font-size: 5rem; font-weight: 900; letter-spacing: -.08em; }
+    .tag { display: inline-block; margin-top: 18px; padding: 6px 10px; border-radius: 999px; background: var(--rose-light); color: var(--pink-dark); font-size: .77rem; font-weight: 750; }
+    .education-card { padding: 28px; display: flex; align-items: flex-start; gap: 18px; }
+    .education-card .icon { flex: 0 0 48px; margin: 0; }
+    .contact-panel { background: linear-gradient(135deg, #f8dce7, #fff0f5 60%, #fff); border: 1px solid var(--line); border-radius: 30px; padding: clamp(28px, 6vw, 58px); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; }
+    .contact-panel p { max-width: 560px; color: var(--muted); margin: 10px 0 0; }
+    .email-link { white-space: nowrap; }
+    footer { padding: 25px 0 34px; color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 22px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 30px, 600px); }
+      .nav { min-height: 66px; }
+      nav { gap: 13px; }
+      nav a { font-size: .82rem; }
+      nav a:not(.nav-cta) { display: none; }
+      .hero { padding: 58px 0 42px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+      .visual { min-height: 310px; }
+      .orbit { width: 270px; }
+      .monogram { width: 140px; height: 140px; font-size: 3.8rem; }
+      .card-one { right: 2px; top: 25px; }
+      .card-two { left: 2px; bottom: 20px; }
+      section { padding: 48px 0; }
+      .about-grid, .skills-grid, .project-grid, .contact-panel { grid-template-columns: 1fr; }
+      .about-mark { min-height: 190px; }
+      .contact-panel { gap: 22px; }
+      .email-link { justify-self: start; white-space: normal; overflow-wrap: anywhere; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home">Safwa<span>.</span>C.A</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a class="nav-cta" href="#contact">Contact ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> B.TECH CSE STUDENT</div>
+          <h1>Hello, I'm <span class="accent">Safwa.</span></h1>
+          <p>A Computer Science and Engineering student with an interest in analysis, technology, and learning how ideas become practical solutions.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+            <a class="btn secondary" href="mailto:safwaah321@gmail.com">Let's connect</a>
+          </div>
+        </div>
+        <div class="visual" aria-label="Decorative pink monogram illustration">
+          <div class="orbit">
+            <div class="monogram">S</div>
+          </div>
+          <div class="float-card card-one">Curious mind <small>Always learning</small></div>
+          <div class="float-card card-two">Technology + ideas <small>Building my future</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">A little about me</span>
+          <h2>Learning with purpose.</h2>
+          <p>A student journey shaped by curiosity, communication, and a growing interest in understanding problems.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-mark">
+            <div class="quote-mark">“</div>
+            <strong>Stay curious.<br>Keep improving.</strong>
+            <span style="color:var(--pink-dark);font-size:.88rem;font-weight:700">— Safwa C.A</span>
+          </div>
+          <div class="about-copy-card">
+            <p>I'm Safwa C.A, a B.Tech Computer Science and Engineering student at Jawaharlal College of Engineering and Technology.</p>
+            <p>I describe myself as an analyst who enjoys looking at information, understanding how things work, and exploring technology. I'm developing my technical knowledge while strengthening the communication skills that help turn ideas into clear solutions.</p>
+            <p>This portfolio is a snapshot of my learning journey and the projects I explore along the way.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">What I bring</span>
+          <h2>Skills & strengths.</h2>
+          <p>A combination of technical learning and people skills that I'm continuing to develop.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="icon" aria-hidden="true">⌘</div>
+            <h3>Python</h3>
+            <p>Building a foundation in programming, logical thinking, and writing code to solve problems.</p>
+          </article>
+          <article class="skill-card">
+            <div class="icon" aria-hidden="true">✦</div>
+            <h3>Good communication</h3>
+            <p>Sharing ideas clearly, listening to others, and working toward better collaboration.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Learning by doing</span>
+          <h2>Projects & experience.</h2>
+          <p>A growing collection of academic work and hands-on learning.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="icon" aria-hidden="true">▦</div>
+            <h3>FPGA</h3>
+            <p>An academic project area focused on Field-Programmable Gate Arrays and exploring digital hardware concepts.</p>
+            <span class="tag">Academic project</span>
+          </article>
+          <article class="project-card">
+            <div class="icon" aria-hidden="true">◎</div>
+            <h3>Analytical thinking</h3>
+            <p>Interested in examining information, breaking down problems, and finding a clear way to approach a solution.</p>
+            <span class="tag">Area of interest</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">My foundation</span>
+          <h2>Education.</h2>
+        </div>
+        <div class="education-card">
+          <div class="icon" aria-hidden="true">⌂</div>
+          <div>
+            <h3>B.Tech — Computer Science and Engineering</h3>
+            <p>Jawaharlal College of Engineering and Technology</p>
+            <p style="margin-top:8px">Currently building knowledge in computing, programming, and problem-solving.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div>
+            <span class="kicker">Get in touch</span>
+            <h2>Let's connect.</h2>
+            <p>Have a project idea, an opportunity to learn, or simply want to connect? Feel free to send me an email.</p>
+          </div>
+          <a class="btn primary email-link" href="mailto:safwaah321@gmail.com">safwaah321@gmail.com ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Safwa C.A</span>
+      <span>Made with care · Personal portfolio</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
